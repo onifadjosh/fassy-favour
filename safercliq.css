@@ -1,0 +1,237 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+     font-family: "Nunito", sans-serif;
+    background: white;
+    color: #111;
+    line-height: 1.6;
+    /* overflow: hidden; */
+}
+
+/* Glassmorphism Nav */
+.glass-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 50px;
+    padding: 10px 30px; /* Reduced side padding slightly for better balance */
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.glass-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 10px; /* Gap between buttons */
+    margin: 0;
+    padding: 0;
+}
+
+.glass-nav a {
+    text-decoration: none;
+    color: #000; /* Slightly dim so hover pops more */
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    border-radius: 40px;
+    display: block;
+    transition: all 0.3s ease; /* THIS IS KEY for smooth feedback */
+}
+/* --- FEEDBACK EFFECTS --- */
+
+/* 1. Hover: Light up and Lift */
+.glass-nav a:hover {
+    color: var(--blue); 
+    background: rgba(255, 255, 255, 0.15); /* Soft highlight background */
+    transform: translateY(-2px); /* Lifts the link up */
+}
+
+/* 2. Active Page: Keep highlighted */
+.glass-nav a.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: #0b2a4a;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* 3. Click Feedback: Press down */
+.glass-nav a:active {
+    transform: translateY(0) scale(0.95); /* Shrinks slightly when clicked */
+}
+
+h1,
+h2,
+h3 {
+    margin-bottom: 0.5rem;
+    font-family: "Playfair Display", serif; 
+}
+
+.hero {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+.hero h2 {
+    font-size: 4rem;
+    font-family: "Playfair Display", serif;
+}
+
+.hero p {
+    max-width: 650px;
+    margin-bottom: 2rem;
+}
+
+.about-btn {
+  display: inline-block;
+  padding: 14px 38px;
+  background: #0b2545;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 30px;
+  margin-left: -10px;
+
+  /* Button shadow */
+  box-shadow: 0 12px 30px rgba(11, 37, 69, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(11, 37, 69, 0.45);
+} 
+
+.section {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+.grid-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.tools img {
+    height: 60px;
+    margin-right: 10px;
+}
+
+.ux-process ol {
+    padding-left: 1rem;
+}
+
+.screens img {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+}
+
+.footer-section {
+     background: #0b2545;
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header.scrolled {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+
+/* Media Query for Responsive Layout */
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .glass-nav {
+        width: 95%; /* Ensure it doesn't touch the very edges */
+        padding: 5px 10px; /* Reduce bulky padding */
+        top: 10px; /* Bring it closer to the top edge */
+    }
+
+    .glass-nav ul {
+        gap: 2px; /* Reduce space between links */
+        justify-content: space-around; /* Spread them evenly */
+    }
+
+    .glass-nav a {
+        font-size: 0.75rem; /* Smaller text for smaller screens */
+        padding: 8px 10px; /* Compact touch targets */
+    }
+    .glass-nav a:active {
+        background: var(--blue); /* Highlight the button fully when tapped */
+        color: #fff;
+        transform: scale(0.9); /* More noticeable shrink */
+    }
+}
+
+/* Very Small Phones (iPhone SE etc) */
+@media (max-width: 380px) {
+    .glass-nav a {
+        padding: 6px 8px;
+        font-size: 0.7rem;
+    }
+}
+
+/* Mobile-friendly font scaling */
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+}
+
+p {
+    line-height: 1.6;
+}
+
+/* Make .grid-two stack on small screens */
+@media screen and (max-width: 768px) {
+    .grid-two {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    .section {
+        padding: 1.5rem 1rem;
+    }
+
+    .tools img {
+        height: 24px;
+    }
+
+    .screens img {
+        border-radius: 8px;
+    }
+
+    footer {
+        padding: 1.5rem 1rem;
+    }
+}
